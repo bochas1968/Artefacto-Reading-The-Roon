@@ -20,7 +20,7 @@ jobs:
       - name: Pull FRED, GPR and EPU and refresh data.json
         run: python scripts/update_public_data.py data.json
       - name: Commit if changed
-        run: |
+        run: python update_public_data.py data.json
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           if ! git diff --quiet -- data.json; then
